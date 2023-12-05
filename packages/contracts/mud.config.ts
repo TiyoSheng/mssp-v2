@@ -25,6 +25,11 @@ export default mudConfig({
     MoveSystem: {
       name: "move",
       openAccess: true,
+    },
+    TempSystem: {
+      name: "temp",
+      openAccess: false,
+      accessList:['0xd5d9aad645671a285d2cadf8e68aef7d74a8a7d1']
     }
   },
   enums: {
@@ -60,19 +65,26 @@ export default mudConfig({
       valueSchema: {
         x: "uint16",
         y: "uint16",
+        oreBalance: "uint16",
+        treasureBalance: "uint16",
+        state: "PlayerState",
+        lastBattleTime: "uint256"
+        
+      }
+    },
+    PlayerParams:{
+      keySchema: {
+        addr: "address",
+      },
+      valueSchema: {
         hp: "uint256",
         attack: "uint256",
         attackRange: "uint256",
         speed: "uint256",
         strength: "uint256",
         space: "uint256",
-        oreBalance: "uint16",
-        treasureBalance: "uint16",
-        state: "PlayerState",
-        lastBattleTime: "uint256",
         maxHp: "uint256",
-        name: "string",
-        url: "string",
+        name: "string"
       }
     },
     PlayerAddon: {
@@ -90,7 +102,7 @@ export default mudConfig({
       }
     },
     GameConfig: {
-      dataStruct: false,
+     
       valueSchema: {
         merkleRoot: "bytes32",
         battleId: "uint256",
@@ -103,7 +115,6 @@ export default mudConfig({
       }
     },
     BattleConfig: {
-      dataStruct: false,
       valueSchema: {
         maxAttackzDistance: "uint256",
         maxMoveDistance: "uint256",
@@ -148,20 +159,25 @@ export default mudConfig({
         attacker: "address",
         defender: "address",
         winner: "address",
-        round: "uint16",
         attackerHP: "uint256",
         defenderHP: "uint256",
         isEnd: "bool",
+        endTimestamp: "uint256",
+      }
+    },
+    BattleList1:{
+      keySchema: {
+        battleId: "uint256",
+      },
+      valueSchema: {
         attackerState: "BattleState",
         defenderState: "BattleState",
         attackerAction: "bytes32",
         defenderAction: "bytes32",
         attackerBuffHash: "bytes32",
         defenderBuffHash: "bytes32",
-        startTimestamp: "uint256",
         attackerArg: "uint256",
         defenderArg: "uint256",
-        endTimestamp: "uint256",
       }
     },
     PlayerLocationLock: {
@@ -177,13 +193,12 @@ export default mudConfig({
         boxId: "uint256",
       },
       valueSchema: {
-        lockTime: "uint256",
         x: "uint16",
         y: "uint16",
         oreBalance: "uint16",
         treasureBalance: "uint16",
         randomId: "uint256",
-        dropTime: "uint256",
+        // dropTime: "uint256",
         openTime: "uint256",
         opened: "bool",
         owner: "address",

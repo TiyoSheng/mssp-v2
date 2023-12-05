@@ -40,7 +40,7 @@ contract GMSystem  is System {
         uint256 boxId = GameConfig.getBoxId(GAME_CONFIG_KEY);
         BoxList.setX(boxId, _x);
         BoxList.setY(boxId, _y);
-        BoxList.setDropTime(boxId, block.timestamp);
+        // BoxList.setDropTime(boxId, block.timestamp);
         GameConfig.setBoxId(GAME_CONFIG_KEY, boxId + 1);
     }
 

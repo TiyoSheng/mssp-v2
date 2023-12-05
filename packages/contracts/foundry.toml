@@ -43,7 +43,7 @@ optimizer_runs = 3000
 
 
 [profile.Mississippi-testnet]
-eth_rpc_url = "http://rpc.0xMssp.xyz"
+eth_rpc_url = "http://rpc1.0xMssp.xyz"
 optimizer = true
 optimizer_runs = 3000
 
