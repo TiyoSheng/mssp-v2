@@ -497,13 +497,6 @@ declare const abi: [
     "type": "event"
   },
   {
-    "inputs": [],
-    "name": "A",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "uint16",
@@ -542,6 +535,34 @@ declare const abi: [
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_userContract",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_lootContract",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_pluginContract",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_merkleRoot",
+        "type": "bytes32"
+      }
+    ],
+    "name": "Init",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
